@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --fg: #12151a;
+  --muted: #5d6572;
+  --border: #e4e7ec;
+
+  --brand: #e8432f;
+  --brand-strong: #c8321f;
+  --brand-soft: #fff0ec;
+  --brand-fg: #ffffff;
+
+  --success: #15803d;
+  --success-soft: #e8f7ee;
+  --warning: #b45309;
+  --warning-soft: #fff4dd;
+  --danger: #dc2626;
+  --danger-soft: #fdecec;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 4px 16px rgb(16 24 40 / 0.06);
+  --shadow-pop: 0 12px 40px rgb(16 24 40 / 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0f13;
+    --surface: #15181e;
+    --surface-2: #1c2028;
+    --fg: #eef0f4;
+    --muted: #9aa3b0;
+    --border: #272c36;
+
+    --brand: #ff5b43;
+    --brand-strong: #ff7a66;
+    --brand-soft: rgb(255 91 67 / 0.12);
+    --brand-fg: #ffffff;
+
+    --success: #4ade80;
+    --success-soft: rgb(74 222 128 / 0.12);
+    --warning: #fbbf24;
+    --warning-soft: rgb(251 191 36 / 0.12);
+    --danger: #f87171;
+    --danger-soft: rgb(248 113 113 / 0.12);
+
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+    --shadow-pop: 0 12px 40px rgb(0 0 0 / 0.5);
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-fg: var(--brand-fg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --shadow-card: var(--shadow-card);
+  --shadow-pop: var(--shadow-pop);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Warm gradient used by the hero and auth panel */
+.hero-gradient {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgb(255 176 32 / 0.45), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgb(190 24 93 / 0.45), transparent 60%),
+    linear-gradient(135deg, #e8432f 0%, #f0612a 45%, #d9365f 100%);
+}
+
+/* Perforated ticket edge: punches half-circles out of the divider */
+.ticket-divider {
+  position: relative;
+  border-top: 2px dashed var(--border);
+}
+.ticket-divider::before,
+.ticket-divider::after {
+  content: "";
+  position: absolute;
+  top: -11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: var(--bg);
+}
+.ticket-divider::before {
+  left: -11px;
+}
+.ticket-divider::after {
+  right: -11px;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-flat {
+    box-shadow: none !important;
+    border-color: #ddd !important;
+  }
+}
