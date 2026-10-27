@@ -1,6 +1,6 @@
 import { sessionStore } from "./auth-store";
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8080/api";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://bus-booking-app-wugx.onrender.com/api";
 
 // Messages the auth middleware sends when the token itself is the problem.
 const TOKEN_ERRORS = ["Not authorized, token missing", "Invalid or expired token"];
