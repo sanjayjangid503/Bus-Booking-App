@@ -61,7 +61,7 @@ export const getBookingController = async (req: Request, res: Response) => {
     }
 }
 
-export const getBookingDetailsController = async (req: Request, res: Response) => {
+export const getBookingDetailsController = async (req: Request<{ id: string }>, res: Response) => {
     try {
         const {id} = req.params
         const booking = await getBookingDetailsService(id, req.userId)
@@ -84,7 +84,7 @@ export const getBookingDetailsController = async (req: Request, res: Response) =
 
 }
 
-export const cancelBookingController = async (req: Request, res: Response) => {
+export const cancelBookingController = async (req: Request<{ id: string }>, res: Response) => {
     try {
         const { id } = req.params
         const userId = req.userId;
